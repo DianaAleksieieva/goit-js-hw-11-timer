@@ -9,4 +9,4 @@ const t=require("sweetalert2"),e=document.querySelector("button[data-start]"),o=
 },{"sweetalert2":"KH5c"}],"Focm":[function(require,module,exports) {
 "use strict";var e=r(require("sweetalert2"));function r(e){return e&&e.__esModule?e:{default:e}}require("./sass/main.scss"),require("./js/timer.js");
 },{"sweetalert2":"KH5c","./sass/main.scss":"clu1","./js/timer.js":"yCUT"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-js-hw-11-timer/src.4666f933.js.map
+//# sourceMappingURL=/goit-js-hw-11-timer/src.70bf7576.js.map
