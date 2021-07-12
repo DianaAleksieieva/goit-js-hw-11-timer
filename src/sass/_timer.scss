@@ -178,3 +178,21 @@ h2 {
     }
   }
 }
+.timer {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+.choose-date {
+  margin-right: 30px;
+}
+.start-button {
+  background-color: #f0092f;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
