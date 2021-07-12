@@ -27,84 +27,95 @@ const secondsSecondNumberBottom = document.querySelector('.sec-2 .bottom');
 intervalId = null;
 let currentToEvent = 0;
 startButton.addEventListener('click', () => {
-    
-    
+   
     intervalId = setInterval(() => {
         const curentDate = new Date;
-        if (inputDate.valueAsNumber < curentDate.getTime()) {
+        const curentTime = Date.now();
+         currentToEvent = convertMs(inputDate.valueAsNumber - curentDate.getTime());
+        if (currentToEvent === 0) {
+                clearInterval(intervalId);
+                console.log('DONE!!!');
+                return
+            }
+        else if (inputDate.valueAsNumber < curentTime) {
             clearInterval(intervalId);
             Swal.fire('Please choose a date in the future');
-             return
+            return
         }
-        startButton.setAttribute("disabled", "disabled");
-        currentToEvent = convertMs(inputDate.valueAsNumber - curentDate.getTime());
-               
-    if (currentToEvent.days < 10) {
-        daysFirstNumberTop.textContent = 0;
-        daysFirstNumberBottom.textContent = 0;
-        daysSecondNumberTop.textContent = currentToEvent.days;
-        daysSecondNumberBottom.textContent = currentToEvent.days;
-    }
-    else {
-        for (let i = 0; i < currentToEvent.days.toString().length; i += 1) {
-    
-            daysFirstNumberTop.textContent = currentToEvent.days.toString()[0];
-        daysFirstNumberBottom.textContent = currentToEvent.days.toString()[0];
-              daysSecondNumberTop.textContent = currentToEvent.days.toString()[1];
-        daysSecondNumberBottom.textContent = currentToEvent.days.toString()[1];
-}
-
-    }
-    if (currentToEvent.hours < 10) {
-        hoursFirstNumberTop.textContent = 0;
-        hoursFirstNumberBottom.textContent = 0;
-        hoursSecondNumberTop.textContent = currentToEvent.hours;
-        hoursSecondNumberBottom.textContent = currentToEvent.hours;
-    }
-    else {
-        for (let i = 0; i < currentToEvent.hours.toString().length; i += 1) {
-            
-            hoursFirstNumberTop.textContent = currentToEvent.hours.toString()[0];
-        hoursFirstNumberBottom.textContent = currentToEvent.hours.toString()[0];
-              hoursSecondNumberTop.textContent = currentToEvent.hours.toString()[1];
-        hoursSecondNumberBottom.textContent = currentToEvent.hours.toString()[1];
-}
-
-    }
-    if (currentToEvent.minutes < 10) {
-        minutesFirstNumberTop.textContent = 0;
-        minutesFirstNumberBottom.textContent = 0;
-        minutesSecondNumberTop.textContent = currentToEvent.minutes;
-        minutesSecondNumberBottom.textContent = currentToEvent.minutes;
-    }
-    else {
-        for (let i = 0; i < currentToEvent.minutes.toString().length; i += 1) {
+        else {
           
-            minutesFirstNumberTop.textContent = currentToEvent.minutes.toString()[0];
-        minutesFirstNumberBottom.textContent = currentToEvent.minutes.toString()[0];
-              minutesSecondNumberTop.textContent = currentToEvent.minutes.toString()[1];
-        minutesSecondNumberBottom.textContent = currentToEvent.minutes.toString()[1];
-}
+            startButton.setAttribute("disabled", "disabled");
+           
 
-    }
-    if (currentToEvent.seconds < 10) {
-        secondsFirstNumberTop.textContent = 0;
-        secondsFirstNumberBottom.textContent = 0;
-        secondsSecondNumberTop.textContent = currentToEvent.seconds;
-        secondsSecondNumberBottom.textContent = currentToEvent.seconds;
-        // secondsSecondNumberTopBack.textContent = currentToEvent.seconds-1;
-    }
-    else {
-        for (let i = 0; i < currentToEvent.seconds.toString().length; i += 1) {
-         
-            secondsFirstNumberTop.textContent = currentToEvent.seconds.toString()[0];
-        secondsFirstNumberBottom.textContent = currentToEvent.seconds.toString()[0];
-              secondsSecondNumberTop.textContent = currentToEvent.seconds.toString()[1];
-            secondsSecondNumberBottom.textContent = currentToEvent.seconds.toString()[1];
+
+
+            if (currentToEvent.days < 10) {
+                daysFirstNumberTop.textContent = 0;
+                daysFirstNumberBottom.textContent = 0;
+                daysSecondNumberTop.textContent = currentToEvent.days;
+                daysSecondNumberBottom.textContent = currentToEvent.days;
+            }
+            else {
+                for (let i = 0; i < currentToEvent.days.toString().length; i += 1) {
+    
+                    daysFirstNumberTop.textContent = currentToEvent.days.toString()[0];
+                    daysFirstNumberBottom.textContent = currentToEvent.days.toString()[0];
+                    daysSecondNumberTop.textContent = currentToEvent.days.toString()[1];
+                    daysSecondNumberBottom.textContent = currentToEvent.days.toString()[1];
+                }
+
+            }
+            if (currentToEvent.hours < 10) {
+                hoursFirstNumberTop.textContent = 0;
+                hoursFirstNumberBottom.textContent = 0;
+                hoursSecondNumberTop.textContent = currentToEvent.hours;
+                hoursSecondNumberBottom.textContent = currentToEvent.hours;
+            }
+            else {
+                for (let i = 0; i < currentToEvent.hours.toString().length; i += 1) {
             
-        }
+                    hoursFirstNumberTop.textContent = currentToEvent.hours.toString()[0];
+                    hoursFirstNumberBottom.textContent = currentToEvent.hours.toString()[0];
+                    hoursSecondNumberTop.textContent = currentToEvent.hours.toString()[1];
+                    hoursSecondNumberBottom.textContent = currentToEvent.hours.toString()[1];
+                }
+
+            }
+            if (currentToEvent.minutes < 10) {
+                minutesFirstNumberTop.textContent = 0;
+                minutesFirstNumberBottom.textContent = 0;
+                minutesSecondNumberTop.textContent = currentToEvent.minutes;
+                minutesSecondNumberBottom.textContent = currentToEvent.minutes;
+            }
+            else {
+                for (let i = 0; i < currentToEvent.minutes.toString().length; i += 1) {
+          
+                    minutesFirstNumberTop.textContent = currentToEvent.minutes.toString()[0];
+                    minutesFirstNumberBottom.textContent = currentToEvent.minutes.toString()[0];
+                    minutesSecondNumberTop.textContent = currentToEvent.minutes.toString()[1];
+                    minutesSecondNumberBottom.textContent = currentToEvent.minutes.toString()[1];
+                }
+
+            }
+            if (currentToEvent.seconds < 10) {
+                secondsFirstNumberTop.textContent = 0;
+                secondsFirstNumberBottom.textContent = 0;
+                secondsSecondNumberTop.textContent = currentToEvent.seconds;
+                secondsSecondNumberBottom.textContent = currentToEvent.seconds;
+                // secondsSecondNumberTopBack.textContent = currentToEvent.seconds-1;
+            }
+            else {
+                for (let i = 0; i < currentToEvent.seconds.toString().length; i += 1) {
+         
+                    secondsFirstNumberTop.textContent = currentToEvent.seconds.toString()[0];
+                    secondsFirstNumberBottom.textContent = currentToEvent.seconds.toString()[0];
+                    secondsSecondNumberTop.textContent = currentToEvent.seconds.toString()[1];
+                    secondsSecondNumberBottom.textContent = currentToEvent.seconds.toString()[1];
+            
+                }
         
- }
+            }
+        }
   }, 1000);
     
 });
